@@ -89,7 +89,7 @@ footer {
 			width: 4em;
 		}
 
-		& #menu-open {
+		& .menu-open {
 			width: 3.6em;
 			cursor: pointer;
 		}
@@ -105,7 +105,7 @@ footer {
 				}
 			}
 
-			& #menu-close {
+			& .menu-close {
 				position: absolute;
 				inset-block-start: 2.4em;
 				inset-inline-end: 2em;
