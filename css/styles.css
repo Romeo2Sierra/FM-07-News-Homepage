@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+/* 400, 700, 800 */
+
+:root {
+	--Soft-orange: hsl(35, 77%, 62%);
+	--Soft-red: hsl(5, 85%, 63%);
+	--Off-white: hsl(36, 100%, 99%);
+	--Grayish-blue: hsl(233, 8%, 79%);
+	--Dark-grayish-blue: hsl(236, 13%, 42%);
+	--Very-dark-blue: hsl(240, 100%, 5%);
+	--Overlay-black: rgba(0, 0, 0, 0.4);
+	--Footer-link: hsl(228, 45%, 44%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+	font-family: "Inter", sans-serif;
+}
+
+html {
+	font-size: 0.625em; /* 10px */
+}
+
+body {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+p {
+	font-size: 1.5rem; /* 15px */
+	color: var(--Dark-grayish-blue);
+	line-height: 1.5;
+}
+
+footer {
+	padding-block: 0 3em;
+	padding-inline: 4em;
+
+	&.attribution {
+		font-size: 1.2rem;
+		text-align: center;
+
+		> a {
+			color: var(--Footer-link);
+		}
+	}
+}
+
+
+.cell-01 {
+	grid-area: "cell01";
+}
+.cell-02 {
+	grid-area: "cell02";
+}
+.cell-03 {
+	grid-area: "cell03";
+}
+.cell-04 {
+	grid-area: "cell04";
+}
+
+.container {
+	padding-block: 2.4em;
+	padding-inline: 1.6em;
+	display: grid;
+	grid-template-areas: 
+		"cell01"
+		"cell02"
+		"cell03"
+		"cell04";
+	grid-template-columns: 1fr;
+	gap: 3em;
+
+	& .cell-01 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		& .logo {
+			width: 4em;
+		}
+
+		& #menu-open {
+			width: 3.6em;
+			cursor: pointer;
+		}
+
+		> nav {
+			display: none;
+
+			& a {
+				color: var(--Very-dark-blue);
+
+				&:hover {
+					color: var(--Soft-red);
+				}
+			}
+
+			& #menu-close {
+				position: absolute;
+				inset-block-start: 2.4em;
+				inset-inline-end: 2em;
+				cursor: pointer;
+				z-index: 2;
+			}
+
+			> ul {
+				position: absolute;
+				top: 0;
+				right: 0;
+				box-shadow: 0 0 0 max(100vh, 100vw) var(--Overlay-black);
+				background-color: var(--Off-white);
+				font-size: 1.5em;
+				padding-block: 9.125em;
+				padding-inline: 1.5625em;
+				width: 15.25em;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 2em;
+			}
+		}
+	}
+
+	& .cell-02 {
+		> article {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2em;
+			margin-block-end: 4em;
+
+			& img {
+				width: 100%;
+				height: auto;
+			}
+
+			& .trending-news {
+				display: grid;
+				grid-template-areas: 
+					"trendtitle"
+					"trendcontent";
+				grid-template-columns: 1fr;
+				gap: 2em;
+
+				> h1 {
+					grid-area: "trendtitle";
+					font-size: 4.2em;
+					font-weight: 800;
+					line-height: 1;
+				}
+
+				> div {
+					grid-area: "trendcontent";
+					> a {
+						background-color: var(--Soft-red);
+						color: var(--Very-dark-blue);
+						padding-block: 1em;
+						padding-inline: 2.4em;
+						font-size: 1.4em;
+						font-weight: 700;
+						letter-spacing: 0.25em;
+						text-transform: uppercase;
+
+						&:hover {
+							background-color: var(--Very-dark-blue);
+							color: var(--Off-white);
+						}
+					}
+
+					& p {
+						margin-block-end: 2.4em;
+					}
+				}
+			}
+		}
+	}
+
+	& .cell-03 {
+		background-color: var(--Very-dark-blue);
+		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		gap: 2.4em;
+		margin-block-end: 4em;
+
+		> h2 {
+			color: var(--Soft-orange);
+			font-size: 3em;
+			font-weight: 700;
+		}
+
+		> article {
+			> h3 {
+				font-size: 2em;
+				color: var(--Off-white);
+				cursor: pointer;
+				margin-block-end: 0.35em;
+
+				&:hover {
+					color: var(--Soft-orange);
+				}
+			}
+
+			> p {
+				color: var(--Grayish-blue);
+				line-height: 1.65;
+			}
+		}
+
+		> hr {
+			height: 0.0625rem;
+			border: none;
+			border-block-end: 0.03125rem solid var(--Dark-grayish-blue);
+		}
+	}
+
+	& .cell-04 {
+		display: grid;
+		grid-template-areas: 
+			"misc01"
+			"misc02"
+			"misc03";
+		grid-template-columns: 1fr;
+		gap: 3em;
+		margin-block-end: 4em;
+
+		& .misc-01 {
+			grid-area: "misc01";
+		}
+		& .misc-02 {
+			grid-area: "misc02";
+		}
+		& .misc-03 {
+			grid-area: "misc03";
+		}
+
+		& article[class^='misc-0'] {
+			display: flex;
+			gap: 2em;
+
+			> img {
+				width: 10em;
+			}
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				> span {
+					color: var(--Soft-red);
+					font-size: 3.2em;
+					font-weight: 700;
+				}
+
+				> h4 {
+					font-size: 1.8em;
+					font-weight: 900;
+					cursor: pointer;
+
+					&:hover {
+						color: var(--Soft-red);
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 48em) { /* 768px */
+
+	.container {
+		& .cell-01 {
+			& [id^='menu-'] {
+				display: none;
+			}
+			> nav {
+				display: inline;
+
+				> ul {
+					position: relative;
+					box-shadow: none;
+					background-color: transparent;
+					padding: 0;
+					width: auto;
+					display: flex;
+					flex-direction: row;
+					font-size: 1.5em;
+					gap: 2.5em;
+				}
+			}
+		}
+
+		& .cell-02 {
+			> article {
+				& .trending-news {
+					grid-template-areas: 
+						"trendtitle trendcontent";
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				& .trending-news {
+					gap: 4em;
+
+					> h1 {
+						font-size: 5em;
+						font-weight: 900;
+					}
+				}
+			}
+		}
+
+		& .cell-04 {
+			grid-template-areas: 
+				"misc01 misc02"
+				"misc03";
+			grid-template-columns: repeat(2, 1fr);
+
+			& article[class^='misc-0'] {
+				> img {
+					width: 9em;
+				}
+			}
+		}
+	}
+
+}
+
+@media screen and (min-width: 64em) { /* 1024px */
+
+	.container {
+		max-width: 110em;
+		grid-template-areas: 
+			"cell01 cell01 cell01"
+			"cell02 cell02 cell03"
+			"cell04 cell04 cell04";
+		grid-template-columns: repeat(3, 1fr);
+
+		& .cell-01 {
+			grid-column: 1 / span 3;
+		}
+
+		& .cell-02 {
+			grid-column: 1 / span 2;
+			> article {
+				margin-block-end: 2;
+
+			}
+		}
+
+		& .cell-03 {
+			gap: 3em;
+			height: 93%;
+		}
+
+		& .cell-04 {
+			grid-column: 1 / span 3;
+			grid-template-areas: 
+				"misc01 misc02 misc03";
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+}
