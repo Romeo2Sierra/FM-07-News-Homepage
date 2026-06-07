@@ -306,9 +306,6 @@ footer {
 					grid-template-areas: 
 						"trendtitle trendcontent";
 					grid-template-columns: repeat(2, 1fr);
-				}
-
-				& .trending-news {
 					gap: 4em;
 
 					> h1 {
